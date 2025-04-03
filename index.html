@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeLend - Personal Loans</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow animate__animated animate__fadeInDown custom-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center brand-hover" href="#">
+                <i class="fas fa-landmark me-2 animate__animated animate__flip brand-icon"></i>
+                <span class="animate__animated animate__fadeIn brand-text">PrimeLend</span>
+            </a>
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto nav-list">
+                    <li class="nav-item animate__animated animate__fadeInRight" style="animation-delay: 0.1s;">
+                        <a class="nav-link active nav-link-custom" href="/" aria-current="page">
+                            <i class="fas fa-home me-1 nav-icon"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item animate__animated animate__fadeInRight" style="animation-delay: 0.2s;">
+                        <a class="nav-link nav-link-custom" href="#products">
+                            <i class="fas fa-money-bill-wave me-1 nav-icon"></i>Loan Products
+                        </a>
+                    </li>
+                    <li class="nav-item animate__animated animate__fadeInRight" style="animation-delay: 0.3s;">
+                        <a class="nav-link nav-link-custom" href="#calculator">
+                            <i class="fas fa-calculator me-1 nav-icon"></i>EMI Calculator
+                        </a>
+                    </li>
+                    <li class="nav-item animate__animated animate__fadeInRight" style="animation-delay: 0.4s;">
+                        <a class="nav-link nav-link-custom" href="#eligibility">
+                            <i class="fas fa-check-circle me-1 nav-icon"></i>Eligibility Check
+                        </a>
+                    </li>
+                    <li class="nav-item animate__animated animate__fadeInRight" style="animation-delay: 0.5s;">
+                        <a class="nav-link nav-link-custom" href="#contact">
+                            <i class="fas fa-envelope me-1 nav-icon"></i>Contact
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-3 animate__animated animate__fadeInRight" style="animation-delay: 0.6s;">
+                        <a class="btn custom-btn-apply pulse-button" href="#application">
+                            <i class="fas fa-paper-plane me-1"></i>Apply Now
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+    .custom-navbar {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        padding: 1rem 0;
+        transition: all 0.3s ease;
+    }
+
+    .brand-hover {
+        transition: all 0.3s ease;
+    }
+
+    .brand-hover:hover {
+        transform: scale(1.05);
+    }
+
+    .brand-icon {
+        color: #fff;
+        font-size: 1.8rem;
+    }
+
+    .brand-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    .custom-toggler {
+        border: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .nav-list {
+        gap: 0.5rem;
+    }
+
+    .nav-link-custom {
+        color: rgba(255,255,255,0.9) !important;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link-custom:hover {
+        color: #fff !important;
+        background: rgba(255,255,255,0.1);
+        transform: translateY(-2px);
+    }
+
+    .nav-icon {
+        transition: all 0.3s ease;
+    }
+
+    .nav-link-custom:hover .nav-icon {
+        transform: scale(1.2);
+    }
+
+    .custom-btn-apply {
+        background: linear-gradient(45deg, #FF512F 0%, #F09819 100%);
+        border: none;
+        padding: 0.5rem 1.5rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    }
+
+    .custom-btn-apply:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    </style>
+    <style>
+    /* Add Animate.css CDN in head section */
+    @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css";
+
+    .hover-effect {
+        transition: all 0.3s ease;
+    }
+
+    .hover-effect:hover {
+        transform: translateY(-2px);
+        color: #fff !important;
+        text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+
+    .pulse-button {
+        animation: pulse 2s infinite;
+        transition: all 0.3s ease;
+    }
+
+    .pulse-button:hover {
+        animation: none;
+        transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(0,123,255, 0.7);
+        }
+        70% {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 10px rgba(0,123,255, 0);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(0,123,255, 0);
+        }
+    }
+    </style>
+
+    <!-- Hero Section -->
+    <section class="hero-section" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-white">
+                    <h1 class="display-4 mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Get Your Personal Loan
+                        in 3 Easy Steps</h1>
+                    <p class="lead mb-4" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">Fast approval | Low interest
+                        rates | Flexible repayment options</p>
+                    <div class="d-grid gap-3 d-md-block">
+                        <button class="btn btn-primary btn-lg me-2"
+                            style="background: linear-gradient(to right, #4e54c8, #8f94fb); border: none;">Apply
+                            Now</button>
+                        <button class="btn btn-outline-light btn-lg"
+                            style="box-shadow: 0 0 10px rgba(255,255,255,0.1);">Check Eligibility</button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="loan-illustration"
+                        style="background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%); padding: 2rem; border-radius: 10px;">
+                        <!-- Will add SVG animation later -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMI Calculator -->
+<section id="calculator" class="py-5 calculator-section">
+    <div class="container">
+        <h2 class="text-center mb-5 section-title">EMI Calculator</h2>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="calculator-card">
+                    <div class="card-body p-4">
+                        <div class="mb-4">
+                            <label class="calculator-label">Loan Amount (₹)</label>
+                            <div class="custom-input-group">
+                                <span class="input-prefix">₹</span>
+                                <input type="number" id="loanAmount" class="calculator-input"
+                                    min="10000" max="5000000" step="10000" value="500000">
+                            </div>
+                            <div class="input-range-info">Min: ₹10,000 | Max: ₹50,00,000</div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="calculator-label">Interest Rate (% p.a.)</label>
+                            <div class="custom-input-group">
+                                <input type="number" id="interestRate" class="calculator-input" min="8"
+                                    max="25" step="0.1" value="12.5">
+                                <span class="input-suffix">%</span>
+                            </div>
+                            <div class="input-range-info">Min: 8% | Max: 25%</div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="calculator-label">Loan Tenure</label>
+                            <div class="custom-input-group">
+                                <input type="number" id="loanTenure" class="calculator-input" min="6"
+                                    max="84" step="6" value="24">
+                                <span class="input-suffix">months</span>
+                            </div>
+                            <div class="input-range-info">Min: 6 months | Max: 84 months</div>
+                        </div>
+                        <button class="calculate-btn" onclick="calculateEMI()">Calculate EMI</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="results-card">
+                    <div class="card-body p-4">
+                        <h5 class="results-title">Payment Breakdown</h5>
+                        <div class="payment-results">
+                            <div class="result-item">
+                                <span class="result-label">Monthly EMI:</span>
+                                <strong id="emiResult" class="result-value emi-value">₹0.00</strong>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Total Payment:</span>
+                                <strong id="totalPayment" class="result-value total-value">₹0.00</strong>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Total Interest:</span>
+                                <strong id="totalInterest" class="result-value interest-value">₹0.00</strong>
+                            </div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="emiChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .calculator-section {
+            background: #f4f7fd;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            color: #2a5298;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            border-radius: 2px;
+        }
+
+        .calculator-card, .results-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .calculator-card:hover, .results-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .calculator-label {
+            color: #1e3c72;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .custom-input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .custom-input-group:focus-within {
+            border-color: #2a5298;
+            box-shadow: 0 0 0 3px rgba(42,82,152,0.1);
+        }
+
+        .input-prefix, .input-suffix {
+            padding: 12px 15px;
+            background: #2a5298;
+            color: white;
+            font-weight: 600;
+        }
+
+        .calculator-input {
+            border: none;
+            padding: 12px 15px;
+            width: 100%;
+            background: transparent;
+            font-size: 1.1rem;
+            color: #1e3c72;
+        }
+
+        .calculator-input:focus {
+            outline: none;
+        }
+
+        .input-range-info {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .calculate-btn {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .calculate-btn:hover {
+            background: linear-gradient(45deg, #2a5298, #1e3c72);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(42,82,152,0.3);
+        }
+
+        .results-title {
+            color: #1e3c72;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .payment-results {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            color: #1e3c72;
+            font-weight: 600;
+        }
+
+        .result-value {
+            font-size: 1.2rem;
+        }
+
+        .emi-value { color: #2a5298; }
+        .total-value { color: #28a745; }
+        .interest-value { color: #dc3545; }
+
+        .chart-wrapper {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+    </style>
+</section>
+    <!-- Loan Products Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Loan Products</h2>
+            <div class="row g-4">
+                <!-- Personal Loan Card -->
+                <div class="col-md-4">
+                    <div class="card loan-card h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="loan-icon mb-3">
+                                <i class="fas fa-user-tie fa-2x text-primary"></i>
+                            </div>
+                            <h4 class="card-title">Personal Loan</h4>
+                            <p class="card-text">Get quick access to funds for your personal needs with our flexible
+                                personal loan options.</p>
+                            <ul class="loan-features">
+                                <li><i class="fas fa-check-circle text-success"></i> Loan up to ₹25 Lakhs</li>
+                                <li><i class="fas fa-check-circle text-success"></i> Interest rates from 10.5% p.a.</li>
+                                <li><i class="fas fa-check-circle text-success"></i> Tenure up to 5 years</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home Loan Card -->
+                <div class="col-md-4">
+                    <div class="card loan-card h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="loan-icon mb-3">
+                                <i class="fas fa-home fa-2x text-primary"></i>
+                            </div>
+                            <h4 class="card-title">Home Loan</h4>
+                            <p class="card-text">Make your dream home a reality with our affordable and flexible home
+                                loan options.</p>
+                            <ul class="loan-features">
+                                <li><i class="fas fa-check-circle text-success"></i> Loan up to ₹5 Crores</li>
+                                <li><i class="fas fa-check-circle text-success"></i> Interest rates from 8.5% p.a.</li>
+                                <li><i class="fas fa-check-circle text-success"></i> Tenure up to 30 years</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Loan Card -->
+                <div class="col-md-4">
+                    <div class="card loan-card h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="loan-icon mb-3">
+                                <i class="fas fa-briefcase fa-2x text-primary"></i>
+                            </div>
+                            <h4 class="card-title">Business Loan</h4>
+                            <p class="card-text">Fuel your business growth with our hassle-free business loan solutions.
+                            </p>
+                            <ul class="loan-features">
+                                <li><i class="fas fa-check-circle text-success"></i> Loan up to ₹50 Lakhs</li>
+                                <li><i class="fas fa-check-circle text-success"></i> Interest rates from 12% p.a.</li>
+                                <li><i class="fas fa-check-circle text-success"></i> Tenure up to 7 years</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Customers Say</h2>
+            <div class="row g-4">
+                <!-- Testimonial 1 -->
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="testimonial-rating mb-2">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="testimonial-text">"The loan application process was incredibly smooth. I got my
+                                personal loan approved within 24 hours and the customer service was excellent!"</p>
+                            <div class="testimonial-author d-flex align-items-center mt-3">
+                                <div class="testimonial-avatar me-3">
+                                    <i class="fas fa-user-circle fa-2x text-secondary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Rahul Sharma</h6>
+                                    <small class="text-muted">Personal Loan</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="testimonial-rating mb-2">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                            <p class="testimonial-text">"PrimeLend offered me the best interest rates for my home loan.
+                                The EMI calculator helped me plan my finances better. Highly recommended!"</p>
+                            <div class="testimonial-author d-flex align-items-center mt-3">
+                                <div class="testimonial-avatar me-3">
+                                    <i class="fas fa-user-circle fa-2x text-secondary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Priya Patel</h6>
+                                    <small class="text-muted">Home Loan</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="testimonial-rating mb-2">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="testimonial-text">"As a small business owner, I needed quick funding. PrimeLend's
+                                business loan was exactly what I needed. The process was transparent and fast."</p>
+                            <div class="testimonial-author d-flex align-items-center mt-3">
+                                <div class="testimonial-avatar me-3">
+                                    <i class="fas fa-user-circle fa-2x text-secondary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Vikram Singh</h6>
+                                    <small class="text-muted">Business Loan</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eligibility Check Section -->
+    <section id="eligibility" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Check Your Loan Eligibility</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow">
+                        <div class="card-body p-4">
+                            <form id="eligibilityForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Loan Type</label>
+                                        <select class="form-select" id="loanType" required>
+                                            <option value="" selected disabled>Select Loan Type</option>
+                                            <option value="personal">Personal Loan</option>
+                                            <option value="home">Home Loan</option>
+                                            <option value="business">Business Loan</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Monthly Income (₹)</label>
+                                        <input type="number" class="form-control" id="monthlyIncome"
+                                            placeholder="Enter your monthly income" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Employment Type</label>
+                                        <select class="form-select" id="employmentType" required>
+                                            <option value="" selected disabled>Select Employment Type</option>
+                                            <option value="salaried">Salaried</option>
+                                            <option value="self-employed">Self-Employed</option>
+                                            <option value="business">Business Owner</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Credit Score (CIBIL)</label>
+                                        <select class="form-select" id="creditScore" required>
+                                            <option value="" selected disabled>Select Credit Score Range</option>
+                                            <option value="excellent">Excellent (750+)</option>
+                                            <option value="good">Good (700-749)</option>
+                                            <option value="fair">Fair (650-699)</option>
+                                            <option value="poor">Poor (Below 650)</option>
+                                            <option value="no-score">No Credit History</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Age</label>
+                                        <input type="number" class="form-control" id="age" min="21" max="65"
+                                            placeholder="Enter your age" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Existing EMIs (₹/month)</label>
+                                        <input type="number" class="form-control" id="existingEMIs"
+                                            placeholder="Enter existing EMIs if any" value="0">
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-primary w-100 py-3">Check
+                                            Eligibility</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Eligibility Result (Hidden by default) -->
+                    <div id="eligibilityResult" class="card mt-4 shadow d-none">
+                        <div class="card-body p-4 text-center">
+                            <div id="eligibilityStatus" class="mb-3">
+                                <!-- Will be filled by JavaScript -->
+                            </div>
+                            <div id="eligibilityDetails">
+                                <!-- Will be filled by JavaScript -->
+                            </div>
+                            <div class="mt-4">
+                                <button id="applyNowBtn" class="btn btn-success me-2">Apply Now</button>
+                                <button id="recalculateBtn" class="btn btn-outline-secondary">Recalculate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section id="application" class="py-5 bg-light d-none">
+        <div class="container">
+            <h2 class="text-center mb-5">Loan Application Form</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow">
+                        <div class="card-body p-4">
+                            <form id="loanApplicationForm">
+                                <!-- Progress Bar -->
+                                <div class="progress mb-4" style="height: 10px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+
+                                <!-- Step Indicators -->
+                                <div class="d-flex justify-content-between mb-5">
+                                    <div class="step active text-center">
+                                        <div class="step-icon">1</div>
+                                        <div class="step-label">Personal Details</div>
+                                    </div>
+                                    <div class="step text-center">
+                                        <div class="step-icon">2</div>
+                                        <div class="step-label">Employment Details</div>
+                                    </div>
+                                    <div class="step text-center">
+                                        <div class="step-icon">3</div>
+                                        <div class="step-label">Loan Details</div>
+                                    </div>
+                                    <div class="step text-center">
+                                        <div class="step-icon">4</div>
+                                        <div class="step-label">Documents</div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 1: Personal Details (Visible by default) -->
+                                <div id="step1" class="form-step">
+                                    <h4 class="mb-4">Personal Details</h4>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Full Name</label>
+                                            <input type="text" class="form-control" name="fullName" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Email Address</label>
+                                            <input type="email" class="form-control" name="email" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Mobile Number</label>
+                                            <input type="tel" class="form-control" name="mobile" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Date of Birth</label>
+                                            <input type="date" class="form-control" name="dob" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">PAN Number</label>
+                                            <input type="text" class="form-control" name="pan" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Aadhaar Number</label>
+                                            <input type="text" class="form-control" name="aadhaar" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">Residential Address</label>
+                                            <textarea class="form-control" name="address" rows="3" required></textarea>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">City</label>
+                                            <input type="text" class="form-control" name="city" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">PIN Code</label>
+                                            <input type="text" class="form-control" name="pincode" required>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 d-flex justify-content-end">
+                                        <button type="button" class="btn btn-primary next-step">Next Step</button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Employment Details (Hidden by default) -->
+                                <div id="step2" class="form-step d-none">
+                                    <h4 class="mb-4">Employment Details</h4>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Employment Type</label>
+                                            <select class="form-select" name="employmentType" required>
+                                                <option value="" selected disabled>Select Employment Type</option>
+                                                <option value="salaried">Salaried</option>
+                                                <option value="self-employed">Self-Employed</option>
+                                                <option value="business">Business Owner</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Company/Business Name</label>
+                                            <input type="text" class="form-control" name="companyName" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Designation</label>
+                                            <input type="text" class="form-control" name="designation">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Work Experience (Years)</label>
+                                            <input type="number" class="form-control" name="workExperience" min="0"
+                                                required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Monthly Income (₹)</label>
+                                            <input type="number" class="form-control" name="monthlyIncome" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Office Address</label>
+                                            <textarea class="form-control" name="officeAddress" rows="3"
+                                                required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary prev-step">Previous
+                                            Step</button>
+                                        <button type="button" class="btn btn-primary next-step">Next Step</button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3: Loan Details (Hidden by default) -->
+                                <div id="step3" class="form-step d-none">
+                                    <h4 class="mb-4">Loan Details</h4>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Loan Type</label>
+                                            <select class="form-select" name="loanType" required>
+                                                <option value="" selected disabled>Select Loan Type</option>
+                                                <option value="personal">Personal Loan</option>
+                                                <option value="home">Home Loan</option>
+                                                <option value="business">Business Loan</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Loan Amount (₹)</label>
+                                            <input type="number" class="form-control" name="loanAmount" min="10000"
+                                                required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Loan Tenure (Months)</label>
+                                            <input type="number" class="form-control" name="loanTenure" min="6" max="84"
+                                                required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Loan Purpose</label>
+                                            <select class="form-select" name="loanPurpose" required>
+                                                <option value="" selected disabled>Select Loan Purpose</option>
+                                                <option value="education">Education</option>
+                                                <option value="medical">Medical Expenses</option>
+                                                <option value="wedding">Wedding</option>
+                                                <option value="travel">Travel</option>
+                                                <option value="home-renovation">Home Renovation</option>
+                                                <option value="debt-consolidation">Debt Consolidation</option>
+                                                <option value="business">Business Expansion</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">Additional Details (Optional)</label>
+                                            <textarea class="form-control" name="additionalDetails" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary prev-step">Previous
+                                            Step</button>
+                                        <button type="button" class="btn btn-primary next-step">Next Step</button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 4: Documents (Hidden by default) -->
+                                <div id="step4" class="form-step d-none">
+                                    <h4 class="mb-4">Document Upload</h4>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">ID Proof (PAN Card/Aadhaar)</label>
+                                            <input type="file" class="form-control" name="idProof" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Address Proof</label>
+                                            <input type="file" class="form-control" name="addressProof" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Income Proof (Salary Slips/ITR)</label>
+                                            <input type="file" class="form-control" name="incomeProof" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Bank Statements (Last 6 Months)</label>
+                                            <input type="file" class="form-control" name="bankStatements" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">Additional Documents (Optional)</label>
+                                            <input type="file" class="form-control" name="additionalDocuments" multiple>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="termsCheck"
+                                                    required>
+                                                <label class="form-check-label" for="termsCheck">
+                                                    I agree to the <a href="#">Terms and Conditions</a> and <a
+                                                        href="#">Privacy Policy</a>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary prev-step">Previous
+                                            Step</button>
+                                        <button type="submit" class="btn btn-success">Submit Application</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- FAQ Item 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1">
+                                    What documents are required for a personal loan application?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    For a personal loan application, you typically need to submit identity proof (PAN
+                                    card, Aadhaar), address proof, income proof (salary slips or ITR for last 2 years),
+                                    and bank statements for the last 6 months. Additional documents may be required
+                                    based on your profile and loan amount.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq2">
+                                    How long does it take to get a loan approved?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    At PrimeLend, we strive to provide quick loan approvals. For personal loans, the
+                                    approval typically happens within 24-48 hours after submission of all required
+                                    documents. Disbursement usually takes place within 1-3 business days after approval.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq3">
+                                    What is the minimum credit score required for loan approval?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    While we consider multiple factors for loan approval, a CIBIL score of 700 or above
+                                    generally increases your chances of approval with better interest rates. However, we
+                                    also consider applications with lower scores based on other eligibility criteria and
+                                    may offer loans with slightly higher interest rates.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq4">
+                                    Can I repay my loan before the tenure ends?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, you can make prepayments or foreclose your loan before the end of the tenure.
+                                    However, a nominal prepayment/foreclosure fee may apply as per our terms and
+                                    conditions. This fee typically ranges from 2-5% of the outstanding loan amount
+                                    depending on the loan type and tenure completed.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 5 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq5">
+                                    How is the EMI for my loan calculated?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    The EMI (Equated Monthly Installment) is calculated based on the principal loan
+                                    amount, interest rate, and loan tenure. You can use our EMI calculator on the
+                                    website to get an estimate of your monthly payments before applying for the loan.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Us</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card shadow h-100">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Send Us a Message</h4>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mobile Number</label>
+                                    <input type="tel" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Subject</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Message</label>
+                                    <textarea class="form-control" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 py-2">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card shadow h-100">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Get in Touch</h4>
+                            <div class="contact-info">
+                                <div class="d-flex mb-4">
+                                    <div class="contact-icon me-3">
+                                        <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Our Location</h5>
+                                        <p class="mb-0">123 Finance Street, Business District<br>Mumbai, Maharashtra
+                                            400001</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-4">
+                                    <div class="contact-icon me-3">
+                                        <i class="fas fa-phone-alt fa-2x text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Call Us</h5>
+                                        <p class="mb-0">+91 1800 123 4567<br>+91 9876 543 210</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-4">
+                                    <div class="contact-icon me-3">
+                                        <i class="fas fa-envelope fa-2x text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Email Us</h5>
+                                        <p class="mb-0">info@primelend.com<br>support@primelend.com</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="contact-icon me-3">
+                                        <i class="fas fa-clock fa-2x text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Working Hours</h5>
+                                        <p class="mb-0">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00
+                                            PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="social-links mt-4">
+                                <h5>Connect With Us</h5>
+                                <div class="d-flex gap-3 mt-2">
+                                    <a href="#" class="social-icon"><i class="fab fa-facebook-f fa-lg"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter fa-lg"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-instagram fa-lg"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-youtube fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer class="custom-footer py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <h4 class="footer-title mb-4">PrimeLend</h4>
+                <p class="footer-description">PrimeLend is a leading financial institution providing personal loans, home loans, and business
+                    loans with competitive interest rates and flexible repayment options.</p>
+                <div class="social-icons d-flex gap-3 mt-3">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <h5 class="footer-subtitle mb-4">Quick Links</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#" class="footer-link">Home</a></li>
+                    <li><a href="#products" class="footer-link">Loan Products</a></li>
+                    <li><a href="#calculator" class="footer-link">EMI Calculator</a></li>
+                    <li><a href="#eligibility" class="footer-link">Eligibility Check</a></li>
+                    <li><a href="#faq" class="footer-link">FAQs</a></li>
+                    <li><a href="#contact" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h5 class="footer-subtitle mb-4">Loan Products</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#" class="footer-link">Personal Loan</a></li>
+                    <li><a href="#" class="footer-link">Home Loan</a></li>
+                    <li><a href="#" class="footer-link">Business Loan</a></li>
+                    <li><a href="#" class="footer-link">Education Loan</a></li>
+                    <li><a href="#" class="footer-link">Car Loan</a></li>
+                    <li><a href="#" class="footer-link">Gold Loan</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h5 class="footer-subtitle mb-4">Legal</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                    <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+                    <li><a href="#" class="footer-link">Fair Practice Code</a></li>
+                    <li><a href="#" class="footer-link">Grievance Redressal</a></li>
+                    <li><a href="#" class="footer-link">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider my-4">
+        <div class="row footer-bottom">
+            <div class="col-md-6">
+                <p class="copyright mb-md-0">© 2023 PrimeLend. All Rights Reserved.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p class="credits mb-0">Designed with <i class="fas fa-heart heart-icon"></i> by PrimeLend Team</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .custom-footer {
+            background-color: #1e3c72;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        }
+
+        .custom-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+            pointer-events: none;
+        }
+
+        .footer-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-subtitle {
+            color: #ffffff;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 12px;
+            font-size: 1.2rem;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 2px;
+        }
+
+        .footer-description {
+            color: #ffffff;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .social-link {
+            color: #ffffff;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            padding: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        .social-link:hover {
+            color: #ffffff;
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.25);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .footer-link {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 5px 0;
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+            transform: translateX(5px);
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        .footer-divider {
+            border-color: rgba(255,255,255,0.3);
+            margin: 2.5rem 0;
+        }
+
+        .footer-bottom {
+            color: #ffffff;
+        }
+
+        .copyright, .credits {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .heart-icon {
+            color: #ff6b6b;
+            animation: heartbeat 1.5s infinite;
+            filter: drop-shadow(0 0 2px rgba(255,107,107,0.5));
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .footer-title {
+                font-size: 1.8rem;
+            }
+            
+            .footer-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .footer-description,
+            .footer-link {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
